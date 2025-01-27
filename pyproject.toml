@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "machine-learning-proj-end-to-end"
+version = "0.1.0"
+description = ""
+authors = ["DavidTitoInfantas <dtitoin10@gmail.com>"]
+readme = "README.md"
+packages = [{include = "machine_learning_proj_end_to_end", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.2.3"
+numpy = "^2.2.2"
+matplotlib = "^3.10.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
