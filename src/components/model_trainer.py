@@ -16,7 +16,7 @@ from xgboost import XGBRegressor
 from src.exception import CustomException
 from src.logger import logging
 
-from src.utils import save_object,evaluate_models
+from src.utils import save_object,evaluate_models, evaluate_models_tunn_Grid
 
 @dataclass
 class ModelTrainerConfig:
@@ -100,10 +100,21 @@ class ModelTrainer:
                 
             }
 
-
-            model_report:dict=evaluate_models(X_train=X_train, y_train=y_train, 
-                                             X_test =X_test, y_test=y_test,
-                                             models=models,param=params)
+            # Flag to check if hyperparameter tuning is required
+            tunning_method = True
+            
+            if tunning_method: 
+                #Available models with hyperparameter tuning using GridSearchCV
+                model_report:dict=evaluate_models_tunn_Grid(X_train=X_train, y_train=y_train, 
+                                                X_test =X_test, y_test=y_test,
+                                                models=models,param=params)
+            else:
+                # Available models
+                model_report:dict=evaluate_models(X_train=X_train, y_train=y_train, 
+                                                X_test =X_test, y_test=y_test,
+                                                models=models,param=params)
+            
+            
             
             ## to get best model score from dict
             best_model_score=max(model_report.values())
@@ -116,7 +127,7 @@ class ModelTrainer:
 
             if best_model_score < 0.6:
                 raise CustomException('No best model found', sys)
-            logging.info('Best found model on both training and test dataset')
+            logging.info(f'Best found model on both training and test dataset: {best_model_name}')
 
             save_object(
                 file_path=self.model_trainer_config.trained_model_file_path,
