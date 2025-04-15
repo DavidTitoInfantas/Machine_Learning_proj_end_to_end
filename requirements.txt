@@ -1,6 +1,6 @@
 asttokens==3.0.0
 backcall==0.2.0
-black==24
+black==23
 blinker==1.7.0
 catboost==1.2.5
 click==8.1.8
