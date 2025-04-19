@@ -47,12 +47,14 @@ class TestDataTransformation:
 
         return str(train_path), str(test_path)
 
+
     @pytest.fixture(scope="class")
     def transformer(self):
         """
         Create an instance for DataTrandformation object
         """
         return DataTransformation()
+
 
     def test_get_data_transform_object(self, transformer):
         """
