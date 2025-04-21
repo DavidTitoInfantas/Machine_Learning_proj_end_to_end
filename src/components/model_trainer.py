@@ -1,12 +1,14 @@
 import os
 import sys
 from dataclasses import dataclass
-
+from datetime import datetime
+import matplotlib.pyplot as plt 
 from sklearn.ensemble import (
     AdaBoostRegressor,
     GradientBoostingRegressor,
     RandomForestRegressor,
 )
+
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
@@ -20,7 +22,17 @@ from src.utils import save_object,evaluate_models, evaluate_models_tunn_Grid
 
 @dataclass
 class ModelTrainerConfig:
-    trained_model_file_path = os.path.join('artifacts', 'model.pkl')
+    # Current date
+    current_datetime = datetime.now()
+
+    # Format date
+    formatted_datetime = current_datetime.strftime('%Y%m%d_%H%M')
+
+    # Model name
+    model_name = f'model_{formatted_datetime}.pkl'
+
+    # Create the path
+    trained_model_file_path = os.path.join('artifacts', model_name)
 
 class ModelTrainer:
     def __init__(self):
@@ -136,9 +148,21 @@ class ModelTrainer:
 
             predicted = best_model.predict(X_test)
 
+            plt.scatter(y_test, predicted)
+            plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], 'r--')  # Diagonal
+            plt.xlabel("Actual")
+            plt.ylabel("Predicted")
+            plt.title(f"Predicted vs Actual with model: {self.model_trainer_config.model_name}")
+            
+            # Save the grafic
+            plt.savefig(f"results/model_results_{self.model_trainer_config.formatted_datetime}.png")
+            plt.show()
+
             r2_square = r2_score(y_test, predicted)
 
-            return r2_square
+            return (r2_square,
+                    self.model_trainer_config.formatted_datetime,
+                    self.model_trainer_config.model_name)
 
         except Exception as e:
             raise CustomException(e, sys)

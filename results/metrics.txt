@@ -1,0 +1,4 @@
+
+20250421_1850// With model: model_20250421_1850.pkl, has a R2 Square value: 0.8710887044592124
+20250421_1852// With model: model_20250421_1852.pkl, has a R2 Square value: 0.8710887044592124
+20250421_1855// With model: model_20250421_1855.pkl, has a R2 Square value: 0.8710887044592124

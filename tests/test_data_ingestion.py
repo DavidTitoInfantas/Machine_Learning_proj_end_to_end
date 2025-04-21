@@ -1,14 +1,15 @@
 import pandas as pd
 import numpy as np
 import os
+from pathlib import Path
 
 from src.components.data_ingestion import DataIngestionConfig
 from src.components.data_ingestion import DataIngestion
 import pytest
 
-class TestModelTrainer:
+class TestDataIngestion:
 
-    @pytest.fixture(scope="class")
+    @pytest.fixture()
     def sample_data(self, tmp_path):
         """
         Create data for rutine
@@ -53,29 +54,29 @@ class TestModelTrainer:
                  56, 54, 18],
             }
         df_sample = pd.DataFrame(data)
-        df_sample.to_csv(os.path.join(
-                tmp_path, 'notebook', 'data', 'data_sample.csv'
-                )
-            )
+
+        # Cria caminho para o CSV temporário
+        #data_path = os.path.join(tmp_path, "notebook", "data")
+        data_path = Path(tmp_path).joinpath("notebook", "data")
+        data_path.mkdir(parents=True, exist_ok=True)
+        
+        file_path = os.path.join(data_path, 'data_sample.csv')
+        df_sample.to_csv(file_path, index=False)
+
+        return file_path
 
 
-    @pytest.fixture(scope="class")
-    def ingestion(self):
+    @pytest.fixture()
+    def ingestion(self, tmp_path, sample_data):
         '''
         Create an instance of DataIngestion
         '''
-        return DataIngestion()
-
-    def test_initiate_data_ingestion(self, tmp_path, ingestion):
-        '''
-        Test the function with dataframe test
-        '''
-
         # Update paths to use temporary directory
         config = DataIngestionConfig(
-            source_data_path=os.path.join(
-                tmp_path, 'notebook', 'data', 'data_sample.csv'
-                ),
+            source_data_path=sample_data,
+#            os.path.join(
+#                tmp_path, 'notebook', 'data', 'data_sample.csv'
+#                ),
             train_data_path=os.path.join(
                 tmp_path, 'artifacts','train.csv'
                 ),
@@ -86,14 +87,25 @@ class TestModelTrainer:
                 tmp_path, 'artifacts', 'data.csv'
                 )
             )
-        
+
+        return DataIngestion(config)
+
+    def test_initiate_data_ingestion(self, ingestion):
+        '''
+        Test the function with dataframe test
+        '''
         train_data_path, test_data_path = ingestion.initiate_data_ingestion()
 
         # Validate if files exists
         assert os.path.exists(train_data_path)
         assert os.path.exists(test_data_path)
 
+        # Validar se os arquivos têm conteúdo
+        df_train = pd.read_csv(train_data_path)
+        df_test = pd.read_csv(test_data_path)
 
+        assert not df_train.empty
+        assert not df_test.empty
 
 
 
