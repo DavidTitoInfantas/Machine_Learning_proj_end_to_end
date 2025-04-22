@@ -140,8 +140,10 @@ class TestModelTrainer:
         train_arr = data_arr['array1']
         test_arr = data_arr['array2']
 
-        r2_score = trainer.initiate_model_trainer(train_arr, test_arr)
+        r2_score, formatted_datetime, model_name = trainer.initiate_model_trainer(train_arr, test_arr)
 
         assert isinstance(r2_score, float)
         assert 0 <= r2_score <= 1 
+        assert isinstance(formatted_datetime, str)
+        assert isinstance(formatted_datetime, str)
 
