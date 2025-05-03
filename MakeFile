@@ -1,5 +1,5 @@
 install:
-	python3 -m pip install --upgrade pip
+	pip install --upgrade pip &&\
 	pip install -r requirements.txt
 
 format:
@@ -7,3 +7,15 @@ format:
 
 train:
 	python src/pipeline/train.py
+
+eval:
+	echo "## Model Metrics" > report.md
+	cat ./results/metrics.txt >> report.md
+
+	echo '## Predicted vs Actual Scatter Plot' >> report.md
+	echo '![Scatter Plot](./results/scatter_plot.png)' >> report.md
+
+	cml comment create report.md
+
+	
+
