@@ -5,6 +5,7 @@
 
 ## Linting
 eval_docstyle:
+	pip install --upgrade pip && \
 	pip install pydocstyle && \
 	pydocstyle --match=".*/*.py"
 	
@@ -21,8 +22,8 @@ install_tests:
     pip install pytest pytest-cov
 
 tests:
-	pytest --cov=src --cov-report=term --cov-report=html && \
-	htmlcov/index.html
+	pytest --cov=src --cov-report=term-missing --cov-report=html && \
+	coverage html
 
 save_tests_report:
 	coverage html && \

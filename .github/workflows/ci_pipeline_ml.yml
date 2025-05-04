@@ -33,7 +33,7 @@ jobs:
             # Step 3: Execute docstring tests
             - name: Check docstrings
               run: make eval_docstyle  
-            
+              continue-on-error: false
     test:
         runs-on: ubuntu-latest
 
