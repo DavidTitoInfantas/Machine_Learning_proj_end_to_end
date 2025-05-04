@@ -36,11 +36,12 @@ jobs:
 
             # Steps 4: Run tests
             - name: Run tests
+              if: ${{ success() }}
               run: make tests
 
             # Step 5: Upload coverage report
             - name: Upload coverage report
-              if: always()
+              if: ${{ success() }}
               run: make save_tests_report
     
     build:
@@ -62,14 +63,17 @@ jobs:
 
           # Step 4: Format code
           - name: Format
+            if: ${{ success() }}
             run: make format
           
           # Step 5: Run training
           - name: Train
+            if: ${{ success() }}
             run: make train
 
           # Step 6: Run Evaluation
           - name: Evaluation
+            if: ${{ success() }}
             env:
               REPO_TOKEN: ${{secrets.GITHUB_TOKEN}}  
             run: make eval
