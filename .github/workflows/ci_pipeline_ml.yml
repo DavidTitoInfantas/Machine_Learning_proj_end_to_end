@@ -1,4 +1,4 @@
-name: Python CI
+name: ML Pipeline CI
 
 # Trigger the workflow on any push to the main branch or pull request
 on:
@@ -8,8 +8,14 @@ on:
     pull_request:
         branches:
             - main
+    # Optionally, you can also trigger the workflow manually
+    workflow_dispatch:
 
+
+# Permissions for the workflow      
+permissions: write-all
 jobs:
+
     test:
         runs-on: ubuntu-latest
 
@@ -33,6 +39,23 @@ jobs:
             # Steps 4: Run tests
             - name: Run tests
               run: pytest
+    
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - uses: iterative/setup-cml@v2
+          - name: Install Packages
+            run: make install
+          - name: Format
+            run: make format
+          - name: Train
+            run: make train
+          - name: Evaluation
+            env:
+              REPO_TOKEN: ${{secrets.GITHUB_TOKEN}}  
+            run: make eval
+
 
 
             
