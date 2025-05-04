@@ -2,9 +2,9 @@
 
 ## Tests 
 install_tests:
-    python -m pip install --upgrade pip &&\
-    pip install -r requirements.txt &&\
-    pip install pytest pytest-cov
+    python -m pip install --upgrade pip
+    python -m pip install -r requirements.txt
+    python -m pip install pytest pytest-cov
 
 tests:
 	pytest --cov=src
@@ -17,7 +17,7 @@ save_tests_report:
 ## CML 
 install_cml:
 	pip install --upgrade pip &&\
-	pip install -r requirements.txt &&\
+	pip install -r requirements.txt  &&\
 	pip install -e .
 
 format:
