@@ -30,7 +30,7 @@ MarkupSafe==3.0.2
 matplotlib==3.10.0
 matplotlib-inline==0.1.7
 mccabe==0.7.0
--e git+https://github.com/DavidTitoInfantas/Machine_Learning_proj_end_to_end.git@9f6c5fac1edbd8ac46f72a7b72b5f8b0d95138ab#egg=mlproject
+# -e git+https://github.com/DavidTitoInfantas/Machine_Learning_proj_end_to_end.git@9f6c5fac1edbd8ac46f72a7b72b5f8b0d95138ab#egg=mlproject
 mypy-extensions==1.0.0
 narwhals==1.24.1
 nest-asyncio==1.6.0
