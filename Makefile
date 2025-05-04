@@ -1,5 +1,8 @@
 # Makefile for the project
+
+## Set the steps to run always in the pipeline
 .PHONY: tests save_tests_report
+
 ## Tests 
 install_tests:
 	pip install --upgrade pip && \
@@ -7,7 +10,7 @@ install_tests:
     pip install pytest pytest-cov
 
 tests:
-	pytest --cov=src
+	pytest --cov=src --cov-report=term --cov-report=html
 
 save_tests_report:
 	coverage html && \
