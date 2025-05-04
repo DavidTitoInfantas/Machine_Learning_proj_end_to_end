@@ -7,6 +7,7 @@
 install_tests:
 	pip install --upgrade pip && \
     pip install -r requirements.txt && \
+	pip install -e . && \
     pip install pytest pytest-cov
 
 tests:
