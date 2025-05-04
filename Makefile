@@ -2,15 +2,15 @@
 
 ## Tests 
 install_tests:
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
+    python -m pip install --upgrade pip &&\
+    pip install -r requirements.txt &&\
     pip install pytest pytest-cov
 
 tests:
 	pytest --cov=src
 
 save_tests_report:
-	coverage html
+	coverage html &&\
     ls -R htmlcov/
 
 
