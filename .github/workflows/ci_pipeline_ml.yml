@@ -36,12 +36,12 @@ jobs:
 
             # Steps 4: Run tests
             - name: Run tests
-              run: make save_tests_report
+              run: make tests
 
             # Step 5: Upload coverage report
             - name: Upload coverage report
               if: always()
-              run: make save_tests
+              run: make save_tests_report
     
     build:
         needs: test
