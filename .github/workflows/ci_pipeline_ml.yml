@@ -45,7 +45,6 @@ jobs:
               run: make save_tests_report
     
     build:
-        needs: test
         runs-on: ubuntu-latest
 
         steps:
