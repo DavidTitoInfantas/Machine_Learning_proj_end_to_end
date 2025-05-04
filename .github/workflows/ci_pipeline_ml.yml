@@ -41,7 +41,9 @@ jobs:
               run: pytest
     
     build:
+        needs: test
         runs-on: ubuntu-latest
+
         steps:
           - uses: actions/checkout@v3
           - uses: iterative/setup-cml@v2
