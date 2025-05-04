@@ -147,3 +147,6 @@ class TestModelTrainer:
         assert isinstance(formatted_datetime, str)
         assert isinstance(formatted_datetime, str)
 
+
+
+

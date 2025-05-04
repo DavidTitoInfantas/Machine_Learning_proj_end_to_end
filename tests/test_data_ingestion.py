@@ -110,17 +110,3 @@ class TestDataIngestion:
 
 
 
-
-
-
-
-    
-
-
-
-
-
-
-
-
-

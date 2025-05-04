@@ -1,5 +1,5 @@
 # Makefile for the project
-
+.PHONY: tests save_tests_report
 ## Tests 
 install_tests:
 	pip install --upgrade pip && \
