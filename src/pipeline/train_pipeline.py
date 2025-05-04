@@ -46,3 +46,8 @@ def continuous_training():
 
     except Exception as e:
         raise CustomException(e, sys)
+
+if __name__ == "__main__":
+    
+    #Execute the continuous training function
+    continuous_training()
