@@ -3,6 +3,16 @@
 ## Set the steps to run always in the pipeline
 .PHONY: tests save_tests_report
 
+## Linting
+eval_docstyle:
+	pip install pydocstyle && \
+	pydocstyle --match=".*/*.py"
+	
+#	/*.py && \
+#	pylint src/*.py && \
+#	flake8 src/*.py && \
+#	mypy src/*.py
+
 ## Tests 
 install_tests:
 	pip install --upgrade pip && \
@@ -11,7 +21,8 @@ install_tests:
     pip install pytest pytest-cov
 
 tests:
-	pytest --cov=src --cov-report=term --cov-report=html
+	pytest --cov=src --cov-report=term --cov-report=html && \
+	htmlcov/index.html
 
 save_tests_report:
 	coverage html && \

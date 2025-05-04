@@ -1,6 +1,8 @@
+"""Module to handle the training pipeline of the model."""
+
 import pandas as pd
 import numpy as np
-import os 
+import os
 import sys
 
 from src.components.data_ingestion import DataIngestionConfig
@@ -13,24 +15,26 @@ from src.components.model_trainer import ModelTrainer
 from src.exception import CustomException
 from src.logger import logging
 
+
 def continuous_training():
-    ''''
-    This function is responsible for the continuous training of the model.
-    '''
+    """Is responsible for the continuous training of the model."""
     try:
         logging.info("Starting the training pipeline")
         logging.info("Loading the data ingestion component")
-        obj=DataIngestion()
-        train_data,test_data = obj.initiate_data_ingestion()
+        obj = DataIngestion()
+        train_data, test_data = obj.initiate_data_ingestion()
 
         logging.info("Loading the data transformation component")
         data_transformation = DataTransformation()
-        train_arr,test_arr,_ = data_transformation.initiate_data_transformation(train_data, test_data)
+        train_arr, test_arr, _ = data_transformation.initiate_data_transformation(
+            train_data, test_data
+        )
 
         logging.info("Loading the model trainer component")
         model_trainer = ModelTrainer()
-        (r2_square, formatted_datetime, 
-         model_name) = model_trainer.initiate_model_trainer(train_arr, test_arr)
+        (r2_square, formatted_datetime, model_name) = (
+            model_trainer.initiate_model_trainer(train_arr, test_arr)
+        )
 
         logging.info("Model training completed successfully")
 
@@ -42,12 +46,14 @@ def continuous_training():
         with open(caminho_arquivo, "a") as arquivo:
             arquivo.write(mensagem)
 
-        logging.info(f"Model trained and saved as {model_name} with R2 score: {r2_square:.6f}")
+        logging.info(
+            f"Model trained and saved as {model_name} with R2 score: {r2_square:.6f}"
+        )
 
     except Exception as e:
         raise CustomException(e, sys)
 
+
 if __name__ == "__main__":
-    
-    #Execute the continuous training function
+    """Execute the continuous training."""
     continuous_training()

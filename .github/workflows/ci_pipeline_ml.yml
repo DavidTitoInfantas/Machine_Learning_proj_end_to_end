@@ -16,6 +16,24 @@ on:
 permissions: write-all
 jobs:
 
+    Linting:
+        runs-on: ubuntu-latest
+
+        steps:
+            # Step 1: Check out the code from the repository
+            - name: Check out code
+              uses: actions/checkout@v2
+            
+            # Step 2: Set up Python environment
+            - name: Set up Python
+              uses: actions/setup-python@v2
+              with:
+                python-version: '3.11'
+            
+            # Step 3: Execute docstring tests
+            - name: Check docstrings
+              run: make eval_docstyle  
+            
     test:
         runs-on: ubuntu-latest
 
