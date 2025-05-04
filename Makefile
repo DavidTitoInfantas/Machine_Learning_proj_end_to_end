@@ -19,7 +19,7 @@ eval:
 #   print the last png file in the results folder
 	latest_png = $(ls -t ./results/model_results_*.png | head -n 1)
 	echo '## Predicted vs Actual Scatter Plot' >> report.md
-	echo '![Scatter Plot](latest_png)' >> report.md
+	echo '![Scatter Plot]($latest_png)' >> report.md
 
 	cml comment create report.md
 

@@ -35,10 +35,18 @@ jobs:
               run: |
                 python -m pip install --upgrade pip
                 pip install -r requirements.txt
+                pip install pytest pytest-cov
 
             # Steps 4: Run tests
             - name: Run tests
-              run: pytest
+              run: pytest --cov=src
+
+            # Step 5: Upload coverage report
+            - name: Upload coverage report
+              if: always()
+              run: |
+                coverage html
+                ls -R htmlcov/
     
     build:
         needs: test
