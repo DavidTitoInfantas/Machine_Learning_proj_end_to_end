@@ -12,8 +12,8 @@ eval_docstyle:
 eval_codespell:
 	pip install --upgrade pip && \
 	pip install codespell && \
-	codespell .
-
+	codespell --skip="*.csv,*.json,notebook/,results/" \
+	--ignore-words=./codespell-ignore.txt
 #	/*.py && \
 #	pylint src/*.py && \
 #	flake8 src/*.py && \

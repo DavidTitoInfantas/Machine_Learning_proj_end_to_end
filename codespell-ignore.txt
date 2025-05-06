@@ -1,0 +1,3 @@
+# Names and Abreviations used in the project
+EDA
+Hiperparameter
