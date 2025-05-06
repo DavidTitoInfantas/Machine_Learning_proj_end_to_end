@@ -6,11 +6,8 @@ from dataclasses import dataclass
 from datetime import datetime
 
 import matplotlib.pyplot as plt
-from sklearn.ensemble import (
-    AdaBoostRegressor,
-    GradientBoostingRegressor,
-    RandomForestRegressor,
-)
+from sklearn.ensemble import (AdaBoostRegressor, GradientBoostingRegressor,
+                              RandomForestRegressor)
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
