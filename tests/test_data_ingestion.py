@@ -15,7 +15,7 @@ class TestDataIngestion:
 
     @pytest.fixture()
     def sample_data(self, tmp_path):
-        """Create data for rutine."""
+        """Create data for routine."""
         # Create data for test
         data = {
             "gender": [

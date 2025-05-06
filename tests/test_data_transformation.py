@@ -1,4 +1,4 @@
-"""Moduls for testing the data transformation component."""
+"""Modules for testing the data transformation component."""
 
 import pandas as pd
 import numpy as np
@@ -60,7 +60,7 @@ class TestDataTransformation:
         assert isinstance(preprocessor, ColumnTransformer)
 
     def test_initiate_data_transformation(self, sample_data):
-        """Test the tranformations of data and the types of arrays."""
+        """Test the transformations of data and the types of arrays."""
         train_path, test_path = sample_data
         transformer = DataTransformation()
 
@@ -72,5 +72,5 @@ class TestDataTransformation:
         assert isinstance(train_arr, np.ndarray)
         assert isinstance(test_arr, np.ndarray)
 
-        # Validade if the file was saved
+        # Validate if the file was saved
         assert os.path.exists(preprocessor_path)

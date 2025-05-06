@@ -65,7 +65,7 @@ def evaluate_models(X_train, y_train, X_test, y_test, models, param):
 
 def evaluate_models_tunn_Grid(X_train, y_train, X_test, y_test, models, param):
     """
-    Evaluete models with GridSearchCV.
+    Evaluate models with GridSearchCV.
 
     Is the responsible for the evaluation diferents algorithms
     and hyperparameters to find the best model.

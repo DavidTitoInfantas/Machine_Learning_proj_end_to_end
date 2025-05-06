@@ -1,4 +1,4 @@
-"""Moduls for testing the model trainer component."""
+"""Modules for testing the model trainer component."""
 
 import pandas as pd
 import numpy as np
@@ -175,7 +175,7 @@ class TestModelTrainer:
         # Target column name
         target_column_name = "math_score"
 
-        # Separate imput and target
+        # Separate input and target
         imput_feature_train_df = df_train.drop(columns=[target_column_name], axis=1)
         target_feature_train_df = df_train[target_column_name]
 

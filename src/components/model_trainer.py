@@ -174,7 +174,7 @@ class ModelTrainer:
                 f"Predicted vs Actual with model: {self.model_trainer_config.model_name}"
             )
 
-            # Save the grafic
+            # Save the graphic
             plt.savefig(
                 f"results/model_results_{self.model_trainer_config.formatted_datetime}.png"
             )

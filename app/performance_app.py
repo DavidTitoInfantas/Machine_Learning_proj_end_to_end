@@ -1,1 +1,1 @@
-"""Moduls for deploying the performance app."""
+"""Modules for deploying the performance app."""
