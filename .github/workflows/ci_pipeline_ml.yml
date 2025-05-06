@@ -39,6 +39,12 @@ jobs:
             - name: Check spelling
               run: make eval_codespell
               continue-on-error: false
+
+            # Step 5: Execute flake8
+            - name: Check black
+              run: make eval_black
+              continue-on-error: false
+
     test:
         needs: linting
         runs-on: ubuntu-latest

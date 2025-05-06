@@ -16,6 +16,11 @@ eval_codespell:
 	--skip="./notebook/*" --skip="./artifacts/* ./results/*" \
 	--ignore-words=./codespell-ignore.txt
 
+eval_black:
+	pip install --upgrade pip && \
+	pip install black && \
+	black --check --diff --exclude "/(notebook|artifacts|results)/" .
+
 
 ## Tests 
 install_tests:
