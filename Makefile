@@ -8,7 +8,12 @@ eval_docstyle:
 	pip install --upgrade pip && \
 	pip install pydocstyle && \
 	pydocstyle --match=".*/*.py"
-	
+
+eval_codespell:
+	pip install --upgrade pip && \
+	pip install codespell && \
+	codespell .
+
 #	/*.py && \
 #	pylint src/*.py && \
 #	flake8 src/*.py && \
