@@ -7,8 +7,10 @@ import numpy as np
 import pandas as pd
 
 from src.components.data_ingestion import DataIngestion, DataIngestionConfig
-from src.components.data_transformation import (DataTransformation,
-                                                DataTransformationConfig)
+from src.components.data_transformation import (
+    DataTransformation,
+    DataTransformationConfig,
+)
 from src.components.model_trainer import ModelTrainer, ModelTrainerConfig
 from src.exception import CustomException
 from src.logger import logging
