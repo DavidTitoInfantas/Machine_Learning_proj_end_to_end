@@ -12,7 +12,7 @@ eval_docstyle:
 eval_codespell:
 	pip install --upgrade pip && \
 	pip install codespell && \
-	codespell --skip="*.csv *.json results/ notebook/" \
+	codespell --skip="*.csv *.json *.png" --skip="results/ notebook/ artifacts/" \
 	--ignore-words=./codespell-ignore.txt
 
 
