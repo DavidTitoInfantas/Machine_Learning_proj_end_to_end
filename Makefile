@@ -13,7 +13,7 @@ eval_codespell:
 	pip install --upgrade pip && \
 	pip install codespell && \
 	codespell --skip="*.csv *.json *.png" \
-	--skip="notebook/" --skip="artifacts/ results/" \
+	--skip="notebook/*" --skip="artifacts/* results/*" \
 	--ignore-words=./codespell-ignore.txt
 
 
