@@ -12,12 +12,9 @@ eval_docstyle:
 eval_codespell:
 	pip install --upgrade pip && \
 	pip install codespell && \
-	codespell --skip="*.csv,*.json,notebook/,results/" \
+	codespell --skip="*.csv *.json results/ notebook/" \
 	--ignore-words=./codespell-ignore.txt
-#	/*.py && \
-#	pylint src/*.py && \
-#	flake8 src/*.py && \
-#	mypy src/*.py
+
 
 ## Tests 
 install_tests:

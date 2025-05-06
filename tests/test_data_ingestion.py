@@ -1,4 +1,4 @@
-"""Moduls for testing the data ingestion component."""
+"""Modules for testing the data ingestion component."""
 
 import pandas as pd
 import numpy as np

@@ -1,1 +1,1 @@
-"""Moduls for testing the functions."""
+"""Modules for testing the functions."""
