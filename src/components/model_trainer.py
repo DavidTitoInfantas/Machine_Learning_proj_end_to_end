@@ -4,13 +4,10 @@ import os
 import sys
 from dataclasses import dataclass
 from datetime import datetime
-import matplotlib.pyplot as plt
-from sklearn.ensemble import (
-    AdaBoostRegressor,
-    GradientBoostingRegressor,
-    RandomForestRegressor,
-)
 
+import matplotlib.pyplot as plt
+from sklearn.ensemble import (AdaBoostRegressor, GradientBoostingRegressor,
+                              RandomForestRegressor)
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
@@ -19,8 +16,7 @@ from xgboost import XGBRegressor
 
 from src.exception import CustomException
 from src.logger import logging
-
-from src.utils import save_object, evaluate_models, evaluate_models_tunn_Grid
+from src.utils import evaluate_models, evaluate_models_tunn_Grid, save_object
 
 
 @dataclass

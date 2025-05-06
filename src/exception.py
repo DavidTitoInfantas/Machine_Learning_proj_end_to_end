@@ -1,6 +1,7 @@
 """Handles exceptions in the project."""
 
 import sys
+
 from src.logger import logging
 
 

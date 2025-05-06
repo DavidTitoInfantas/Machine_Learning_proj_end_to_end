@@ -1,13 +1,13 @@
 """Run the Flask application."""
 
-from flask import Flask, request, render_template
-import numpy as np
-import pandas as pd
 import os
 
+import numpy as np
+import pandas as pd
+from flask import Flask, render_template, request
 from sklearn.preprocessing import StandardScaler
-from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
+from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
 application = Flask(__name__)
 

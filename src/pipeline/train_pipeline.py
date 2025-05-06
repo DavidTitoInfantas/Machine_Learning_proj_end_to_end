@@ -1,17 +1,15 @@
 """Module to handle the training pipeline of the model."""
 
-import pandas as pd
-import numpy as np
 import os
 import sys
 
-from src.components.data_ingestion import DataIngestionConfig
-from src.components.data_ingestion import DataIngestion
-from src.components.data_transformation import DataTransformationConfig
-from src.components.data_transformation import DataTransformation
-from src.components.model_trainer import ModelTrainerConfig
-from src.components.model_trainer import ModelTrainer
+import numpy as np
+import pandas as pd
 
+from src.components.data_ingestion import DataIngestion, DataIngestionConfig
+from src.components.data_transformation import (DataTransformation,
+                                                DataTransformationConfig)
+from src.components.model_trainer import ModelTrainer, ModelTrainerConfig
 from src.exception import CustomException
 from src.logger import logging
 
