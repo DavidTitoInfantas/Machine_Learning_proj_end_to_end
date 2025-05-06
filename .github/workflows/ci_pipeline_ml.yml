@@ -40,9 +40,14 @@ jobs:
               run: make eval_codespell
               continue-on-error: false
 
-            # Step 5: Execute flake8
+            # Step 5: Execute black
             - name: Check black
               run: make eval_black
+              continue-on-error: false
+
+            # Step 5: Execute isort
+            - name: Check isort
+              run: make eval_isort
               continue-on-error: false
 
     test:

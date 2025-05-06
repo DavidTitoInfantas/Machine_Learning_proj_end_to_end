@@ -21,6 +21,11 @@ eval_black:
 	pip install black && \
 	black --check --diff --exclude "/(notebook|artifacts|results)/" .
 
+eval_isort:
+	pip install --upgrade pip && \
+	pip install isort && \
+	isort --check-only --diff  .
+
 
 ## Tests 
 install_tests:
