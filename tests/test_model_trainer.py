@@ -7,8 +7,10 @@ import pandas as pd
 import pytest
 from sklearn.compose import ColumnTransformer
 
-from src.components.data_transformation import (DataTransformation,
-                                                DataTransformationConfig)
+from src.components.data_transformation import (
+    DataTransformation,
+    DataTransformationConfig,
+)
 from src.components.model_trainer import ModelTrainer, ModelTrainerConfig
 from src.utils import load_object
 
@@ -140,11 +142,33 @@ class TestModelTrainer:
                 61,
                 28,
             ],
-            "math_score": [57, 73, 69, 50, 81, 58, 76, 65, 64, 47, 88, 74, 56, 54, 18],
+            "math_score": [
+                57,
+                73,
+                69,
+                50,
+                81,
+                58,
+                76,
+                65,
+                64,
+                47,
+                88,
+                74,
+                56,
+                54,
+                18,
+            ],
         }
         data_test = {
             "gender": ["male", "female", "male", "female", "male"],
-            "race_ethnicity": ["group A", "group C", "group D", "group B", "group E"],
+            "race_ethnicity": [
+                "group A",
+                "group C",
+                "group D",
+                "group B",
+                "group E",
+            ],
             "parental_level_of_education": [
                 "some college",
                 "bachelor's degree",
@@ -177,10 +201,14 @@ class TestModelTrainer:
         target_column_name = "math_score"
 
         # Separate input and target
-        imput_feature_train_df = df_train.drop(columns=[target_column_name], axis=1)
+        imput_feature_train_df = df_train.drop(
+            columns=[target_column_name], axis=1
+        )
         target_feature_train_df = df_train[target_column_name]
 
-        imput_feature_test_df = df_test.drop(columns=[target_column_name], axis=1)
+        imput_feature_test_df = df_test.drop(
+            columns=[target_column_name], axis=1
+        )
         target_feature_test_df = df_test[target_column_name]
 
         # Load preprocessor object
@@ -190,12 +218,20 @@ class TestModelTrainer:
         )
 
         # Transform data
-        imput_feature_train_arr = preprocessing_obj.transform(imput_feature_train_df)
-        imput_feature_test_arr = preprocessing_obj.transform(imput_feature_test_df)
+        imput_feature_train_arr = preprocessing_obj.transform(
+            imput_feature_train_df
+        )
+        imput_feature_test_arr = preprocessing_obj.transform(
+            imput_feature_test_df
+        )
 
         # Concat array with the target
-        train_arr = np.c_[imput_feature_train_arr, np.array(target_feature_train_df)]
-        test_arr = np.c_[imput_feature_test_arr, np.array(target_feature_test_df)]
+        train_arr = np.c_[
+            imput_feature_train_arr, np.array(target_feature_train_df)
+        ]
+        test_arr = np.c_[
+            imput_feature_test_arr, np.array(target_feature_test_df)
+        ]
 
         path_save_numpy = os.path.join(tmp_path, "arrays_train_test.npz")
         np.savez(path_save_numpy, array1=train_arr, array2=test_arr)
@@ -215,8 +251,8 @@ class TestModelTrainer:
         train_arr = data_arr["array1"]
         test_arr = data_arr["array2"]
 
-        r2_score, formatted_datetime, model_name = trainer.initiate_model_trainer(
-            train_arr, test_arr
+        r2_score, formatted_datetime, model_name = (
+            trainer.initiate_model_trainer(train_arr, test_arr)
         )
 
         assert isinstance(r2_score, float)

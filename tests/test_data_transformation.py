@@ -7,8 +7,10 @@ import pandas as pd
 import pytest
 from sklearn.compose import ColumnTransformer
 
-from src.components.data_transformation import (DataTransformation,
-                                                DataTransformationConfig)
+from src.components.data_transformation import (
+    DataTransformation,
+    DataTransformationConfig,
+)
 
 
 class TestDataTransformation:
@@ -21,7 +23,10 @@ class TestDataTransformation:
         train_data = {
             "gender": ["male", "feamle"],
             "race_ethnicity": ["group A", "group B"],
-            "parental_level_of_education": ["bachelor's degree", "some college"],
+            "parental_level_of_education": [
+                "bachelor's degree",
+                "some college",
+            ],
             "lunch": ["standard", "free/reduced"],
             "test_preparation_course": ["none", "completed"],
             "writing_score": [74, 88],
