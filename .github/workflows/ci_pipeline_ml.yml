@@ -50,6 +50,11 @@ jobs:
               run: make eval_black
               continue-on-error: false
 
+            # Step 6 Execute flake8
+            - name: Check flake8
+              run: make eval_flake8
+              continue-on-error: false
+
     test:
         needs: linting
         runs-on: ubuntu-latest
