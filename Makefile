@@ -19,12 +19,12 @@ eval_codespell:
 eval_isort:
 	pip install --upgrade pip && \
 	pip install isort && \
-	isort --check-only --diff  .
+	isort --settings-path pyproject.toml --check-only --diff  .
 
 eval_black:
 	pip install --upgrade pip && \
 	pip install black && \
-	black --check --diff --exclude "/(notebook|artifacts|results)/" .
+	black --config pyproject.toml --check --diff --exclude "/(notebook|artifacts|results)/" .
 
 
 

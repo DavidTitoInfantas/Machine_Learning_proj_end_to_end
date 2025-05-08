@@ -7,8 +7,10 @@ import numpy as np
 import pandas as pd
 
 from src.components.data_ingestion import DataIngestion, DataIngestionConfig
-from src.components.data_transformation import (DataTransformation,
-                                                DataTransformationConfig)
+from src.components.data_transformation import (
+    DataTransformation,
+    DataTransformationConfig,
+)
 from src.components.model_trainer import ModelTrainer, ModelTrainerConfig
 from src.exception import CustomException
 from src.logger import logging
@@ -24,8 +26,10 @@ def continuous_training():
 
         logging.info("Loading the data transformation component")
         data_transformation = DataTransformation()
-        train_arr, test_arr, _ = data_transformation.initiate_data_transformation(
-            train_data, test_data
+        train_arr, test_arr, _ = (
+            data_transformation.initiate_data_transformation(
+                train_data, test_data
+            )
         )
 
         logging.info("Loading the model trainer component")
