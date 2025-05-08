@@ -26,6 +26,10 @@ eval_black:
 	pip install black && \
 	black --config pyproject.toml --check --diff --exclude "/(notebook|artifacts|results)/" .
 
+eval_flake8:
+	pip install --upgrade pip && \
+	pip install flake8 flake8-pyproject && \
+	flake8 --exclude notebook/,artifacts/,results/ .
 
 
 ## Tests 

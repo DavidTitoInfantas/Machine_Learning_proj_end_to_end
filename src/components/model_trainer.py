@@ -69,8 +69,8 @@ class ModelTrainer:
 
             params = {
                 "Linear regression": {
-                    ##'fit_intercept': [True, False],
-                    ##'normalize': [True, False]
+                    # 'fit_intercept': [True, False],
+                    # 'normalize': [True, False]
                 },
                 "K-Neighbors Regressor": {
                     "n_neighbors": [3, 5, 7, 9],
@@ -88,12 +88,14 @@ class ModelTrainer:
                     # 'max_features':['sqrt','log2'],
                 },
                 "Random Forest Regressor": {
-                    # 'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    # 'criterion':['squared_error', 'friedman_mse',
+                    #              'absolute_error', 'poisson'],
                     # 'max_features':['sqrt','log2',None],
                     "n_estimators": [8, 16, 32, 64, 128, 256]
                 },
                 "Gradient Boosting Regressor": {
-                    # 'loss':['squared_error', 'huber', 'absolute_error', 'quantile'],
+                    # 'loss':['squared_error', 'huber',
+                    #         'absolute_error', 'quantile'],
                     "learning_rate": [0.1, 0.01, 0.05, 0.001],
                     "subsample": [0.6, 0.7, 0.75, 0.8, 0.85, 0.9],
                     # 'criterion':['squared_error', 'friedman_mse'],
@@ -120,7 +122,7 @@ class ModelTrainer:
             tunning_method = True
 
             if tunning_method:
-                # Available models with hyperparameter tuning using GridSearchCV
+                # Available model with Tune-hyperparameter GridSearchCV
                 model_report: dict = evaluate_models_tunn_Grid(
                     X_train=X_train,
                     y_train=y_train,
@@ -140,10 +142,10 @@ class ModelTrainer:
                     param=params,
                 )
 
-            ## to get best model score from dict
+            # to get best model score from dict
             best_model_score = max(model_report.values())
 
-            ## to get best model name from dict
+            # to get best model name from dict
             best_model_name = list(model_report.keys())[
                 list(model_report.values()).index(best_model_score)
             ]
@@ -153,7 +155,8 @@ class ModelTrainer:
             if best_model_score < 0.6:
                 raise CustomException("No best model found", sys)
             logging.info(
-                f"Best found model on both training and test dataset: {best_model_name}"
+                f"""Best found model on both training and test dataset:
+                {best_model_name}"""
             )
 
             save_object(
@@ -170,12 +173,14 @@ class ModelTrainer:
             plt.xlabel("Actual")
             plt.ylabel("Predicted")
             plt.title(
-                f"Predicted vs Actual with model: {self.model_trainer_config.model_name}"
+                f"""Predicted vs Actual with model:
+                {self.model_trainer_config.model_name}"""
             )
 
             # Save the graphic
             plt.savefig(
-                f"results/model_results_{self.model_trainer_config.formatted_datetime}.png"
+                f"""results/model_results_
+                {self.model_trainer_config.formatted_datetime}.png"""
             )
             plt.show()
 
