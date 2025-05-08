@@ -1,13 +1,13 @@
 """Modules for testing the data ingestion component."""
 
-import pandas as pd
-import numpy as np
 import os
 from pathlib import Path
 
-from src.components.data_ingestion import DataIngestionConfig
-from src.components.data_ingestion import DataIngestion
+import numpy as np
+import pandas as pd
 import pytest
+
+from src.components.data_ingestion import DataIngestion, DataIngestionConfig
 
 
 class TestDataIngestion:

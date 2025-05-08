@@ -1,15 +1,16 @@
 """Modules for testing the model trainer component."""
 
-import pandas as pd
-import numpy as np
 import os
-from sklearn.compose import ColumnTransformer
-from src.components.model_trainer import ModelTrainerConfig
-from src.components.model_trainer import ModelTrainer
-from src.components.data_transformation import DataTransformationConfig
-from src.components.data_transformation import DataTransformation
-from src.utils import load_object
+
+import numpy as np
+import pandas as pd
 import pytest
+from sklearn.compose import ColumnTransformer
+
+from src.components.data_transformation import (DataTransformation,
+                                                DataTransformationConfig)
+from src.components.model_trainer import ModelTrainer, ModelTrainerConfig
+from src.utils import load_object
 
 
 class TestModelTrainer:

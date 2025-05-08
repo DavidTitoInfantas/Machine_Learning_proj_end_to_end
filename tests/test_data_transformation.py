@@ -1,12 +1,14 @@
 """Modules for testing the data transformation component."""
 
-import pandas as pd
-import numpy as np
-from src.components.data_transformation import DataTransformationConfig
-from src.components.data_transformation import DataTransformation
 import os
-from sklearn.compose import ColumnTransformer
+
+import numpy as np
+import pandas as pd
 import pytest
+from sklearn.compose import ColumnTransformer
+
+from src.components.data_transformation import (DataTransformation,
+                                                DataTransformationConfig)
 
 
 class TestDataTransformation:
