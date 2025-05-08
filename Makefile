@@ -16,15 +16,16 @@ eval_codespell:
 	--skip="./notebook/*" --skip="./artifacts/* ./results/*" \
 	--ignore-words=./codespell-ignore.txt
 
+eval_isort:
+	pip install --upgrade pip && \
+	pip install isort && \
+	isort --check-only --diff  .
+
 eval_black:
 	pip install --upgrade pip && \
 	pip install black && \
 	black --check --diff --exclude "/(notebook|artifacts|results)/" .
 
-eval_isort:
-	pip install --upgrade pip && \
-	pip install isort && \
-	isort --check-only --diff  .
 
 
 ## Tests 
