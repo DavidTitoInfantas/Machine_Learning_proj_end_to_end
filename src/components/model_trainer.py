@@ -48,6 +48,10 @@ class ModelTrainer:
 
     def initiate_model_trainer(self, train_array, test_array):
         """Is the responsible for the model training."""
+        model_file = self.model_trainer_config.trained_model_file_path
+        model_name = self.model_trainer_config.model_name
+        format_date = self.model_trainer_config.formatted_datetime
+
         try:
             logging.info("Split training and test input data")
             X_train, y_train, X_test, y_test = (
@@ -160,7 +164,7 @@ class ModelTrainer:
             )
 
             save_object(
-                file_path=self.model_trainer_config.trained_model_file_path,
+                file_path=model_file,
                 obj=best_model,
             )
 
@@ -173,14 +177,12 @@ class ModelTrainer:
             plt.xlabel("Actual")
             plt.ylabel("Predicted")
             plt.title(
-                f"Predicted vs Actual with model: \
-                {self.model_trainer_config.model_name}"
+                f"Predicted vs Actual with model: {model_name}"
             )
 
             # Save the graphic
             plt.savefig(
-                f"results/model_results_\
-                {self.model_trainer_config.formatted_datetime}.png"
+                f"results/model_results_{format_date}.png"
             )
             plt.show()
 
@@ -188,8 +190,8 @@ class ModelTrainer:
 
             return (
                 r2_square,
-                self.model_trainer_config.formatted_datetime,
-                self.model_trainer_config.model_name,
+                format_date,
+                model_name,
             )
 
         except Exception as e:
