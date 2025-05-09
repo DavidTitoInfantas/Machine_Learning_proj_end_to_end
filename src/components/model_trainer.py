@@ -173,14 +173,14 @@ class ModelTrainer:
             plt.xlabel("Actual")
             plt.ylabel("Predicted")
             plt.title(
-                f"""Predicted vs Actual with model: \
-                {self.model_trainer_config.model_name}"""
+                f"Predicted vs Actual with model: \
+                {self.model_trainer_config.model_name}"
             )
 
             # Save the graphic
             plt.savefig(
-                f"""results/model_results_\
-                {self.model_trainer_config.formatted_datetime}.png"""
+                f"results/model_results_\
+                {self.model_trainer_config.formatted_datetime}.png"
             )
             plt.show()
 
