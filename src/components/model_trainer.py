@@ -176,14 +176,10 @@ class ModelTrainer:
             )  # Diagonal
             plt.xlabel("Actual")
             plt.ylabel("Predicted")
-            plt.title(
-                f"Predicted vs Actual with model: {model_name}"
-            )
+            plt.title(f"Predicted vs Actual with model: {model_name}")
 
             # Save the graphic
-            plt.savefig(
-                f"results/model_results_{format_date}.png"
-            )
+            plt.savefig(f"results/model_results_{format_date}.png")
             plt.show()
 
             r2_square = r2_score(y_test, predicted)
