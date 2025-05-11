@@ -31,7 +31,6 @@ modelo_mais_recente = max(modelos, key=lambda x: (x[0], x[1]))[2] if modelos els
 model = load_object(modelo_mais_recente)
 print(model)
 
-
 if modelo_mais_recente:
     print(f"Modelo mais recente: {modelo_mais_recente}") # modelo_mais_recente[2].name
 else:
