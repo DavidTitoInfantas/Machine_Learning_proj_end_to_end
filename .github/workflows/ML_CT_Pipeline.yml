@@ -3,17 +3,20 @@ name: ML CT Pipeline
 # Trigger the workflow on any push to the main branch or pull request
 on:
   # Trigger when the previous workflow (ML CI Pipeline) has completed
-  workflow_run:
-    workflows: ["ML CI Pipeline"]
-    types:
-      - completed
+#  workflow_run:
+#    workflows: ["ML CI Pipeline"]
+#    types:
+#      - completed
+    push:
+        branches:
+            - main
 
-  # Trigger daily at 12 AM
-  schedule:
-    - cron: '0 0 * * *'
+    # Trigger daily at 12 AM
+    schedule:
+      - cron: '0 0 * * *'
 
-  # Optionally, you can also trigger the workflow manually
-  workflow_dispatch:
+    # Optionally, you can also trigger the workflow manually
+    workflow_dispatch:
 
 
 # Permissions for the workflow      
