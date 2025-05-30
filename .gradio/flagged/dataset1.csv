@@ -1,0 +1,4 @@
+gender,race_ethnicity,parental_level_of_education,lunch,test_preparation_course,reading_score,writing_score,output,timestamp
+female,group A,some college,standard,completed,81,72,"{""label"": null, ""confidences"": null}",2025-05-29 22:12:23.530561
+female,group A,some college,standard,completed,81,72,"{""label"": null, ""confidences"": null}",2025-05-29 22:12:26.096430
+female,group A,some college,standard,completed,81,72,"{""label"": null, ""confidences"": null}",2025-05-29 22:12:27.942010

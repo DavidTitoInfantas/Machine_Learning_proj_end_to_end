@@ -84,3 +84,17 @@ update-branch:
 #	git commit -am "Update with new results"
 	git commit -m "Update with new results"
 	git push --force origin HEAD:update
+
+# Huggingface Hub
+hf-login:
+	git pull origin update
+	git switch update
+	pip install -U "huggingface_hub[cli]"
+	huggingface-cli login --token $(HF) --add-to-git-credential
+
+push-hub:
+	huggingface-cli upload DavidTitoInfantas/Machine_Learning_proj_end_to_end ./app --repo-type=space --commit-message="Sync App files"
+	huggingface-cli upload DavidTitoInfantas/Machine_Learning_proj_end_to_end ./artifacts /artifacts --repo-type=space --commit-message="Sync Model files"
+	huggingface-cli upload DavidTitoInfantas/Machine_Learning_proj_end_to_end ./results /metrics --repo-type=space --commit-message="Sync Results files"
+
+deploy: hf-login push-hub
