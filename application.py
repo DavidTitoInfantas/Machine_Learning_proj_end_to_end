@@ -51,7 +51,7 @@ def predict_datapoint():
 
 @app.route("/api/predict", methods=["POST"])
 def api_predict():
-    """API endpoint to predict student performance from JSON input."""
+    """Endpoint to predict student performance from JSON input."""
     data = request.get_json()
     if not data:
         return jsonify({"error": "No input data provided"}), 400

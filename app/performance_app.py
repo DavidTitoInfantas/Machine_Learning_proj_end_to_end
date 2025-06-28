@@ -61,7 +61,6 @@ def predict_perform_student(
     Returns:
         str: Predicted performance label
     """
-
     data_dic = {
         "gender": [gender],
         "race_ethnicity": [race_ethnicity],
