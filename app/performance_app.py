@@ -1,9 +1,11 @@
 """Modules for deploying the performance app."""
 
-import gradio as gr
 import re
 from pathlib import Path
+
+import gradio as gr
 import pandas as pd
+
 from src.utils import load_object
 
 # Path folder
