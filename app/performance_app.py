@@ -66,9 +66,7 @@ def predict_perform_student(
     data_dic = {
         "gender": [gender],
         "race_ethnicity": [race_ethnicity],
-        "parental_level_of_education": [
-            parental_level_of_education
-        ],
+        "parental_level_of_education": [parental_level_of_education],
         "lunch": [lunch],
         "test_preparation_course": [test_preparation_course],
         "reading_score": [reading_score],
