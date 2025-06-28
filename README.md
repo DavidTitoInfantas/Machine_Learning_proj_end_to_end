@@ -34,7 +34,7 @@ Este repositório tem como objetivo implementar um fluxo completo de CI/CD (Inte
    cd Machine_Learning_proj_end_to_end
    ```
 
-2. Crie um ambiente virtual e instale as dependências:
+2. Crie um ambiente virtual e install as dependências:
    ```bash
    python -m venv venv
    source venv/bin/activate
@@ -72,7 +72,7 @@ pytest --cov=src --cov-report=term-missing --cov-report=html
 
 ## CI/CD
 
-O projeto utiliza GitHub Actions para automatizar:
+O projeto faz uso de GitHub Actions para automatizar:
 
 - Execução dos testes unitários a cada push ou pull request.
 - Treinamento contínuo do modelo a cada nova versão.

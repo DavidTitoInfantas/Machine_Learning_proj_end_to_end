@@ -81,7 +81,7 @@ def predict_perform_student(
     return label
 
 
-imputs = [
+inputs = [
     gr.Radio(['female', 'male'], label="gender"),
     gr.Radio(
         ['group A', 'group B', 'group C', 'group D', 'group E'],
@@ -121,7 +121,7 @@ article = "This app is a part of the Beginner's Guide to CI/CD for Machine Learn
 
 gr.Interface(
     fn=predict_perform_student,
-    inputs=imputs,
+    inputs=inputs,
     outputs=outputs,
     examples=examples,
     title=title,
