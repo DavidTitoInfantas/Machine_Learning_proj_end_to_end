@@ -12,8 +12,8 @@ on:
             - main
 
     # Trigger daily at 12 AM
-    schedule:
-      - cron: '0 0 * * *'
+    #schedule:
+    #  - cron: '0 0 * * *'
 
     # Optionally, you can also trigger the workflow manually
     workflow_dispatch:
