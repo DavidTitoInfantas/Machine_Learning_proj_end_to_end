@@ -60,7 +60,9 @@ def api_predict():
         custom_data = CustomData(
             gender=data.get("gender"),
             race_ethnicity=data.get("race_ethnicity"),
-            parental_level_of_education=data.get("parental_level_of_education"),
+            parental_level_of_education=data.get(
+                "parental_level_of_education"
+            ),
             lunch=data.get("lunch"),
             test_preparation_course=data.get("test_preparation_course"),
             reading_score=float(data.get("reading_score")),
