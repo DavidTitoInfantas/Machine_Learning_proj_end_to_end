@@ -5,3 +5,4 @@
 20250422_0758// With model: model_20250422_0758.pkl, has a R2 Square value: 0.8711
 20250504_1031// With model: model_20250504_1031.pkl, has a R2 Square value: 0.8711
 20250508_2131// With model: model_20250508_2131.pkl, has a R2 Square value: 0.8711
+20250628_1503// With model: model_20250628_1503.pkl, has a R2 Square value: 0.8711
