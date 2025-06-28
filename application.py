@@ -4,7 +4,7 @@ import os
 
 import numpy as np
 import pandas as pd
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from sklearn.preprocessing import StandardScaler
 
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
@@ -47,6 +47,31 @@ def predict_datapoint():
         predict_pipeline = PredictPipeline()
         results = predict_pipeline.predict(pred_df)
         return render_template("home.html", results=results[0])
+
+
+@app.route("/api/predict", methods=["POST"])
+def api_predict():
+    """API endpoint to predict student performance from JSON input."""
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "No input data provided"}), 400
+
+    try:
+        custom_data = CustomData(
+            gender=data.get("gender"),
+            race_ethnicity=data.get("race_ethnicity"),
+            parental_level_of_education=data.get("parental_level_of_education"),
+            lunch=data.get("lunch"),
+            test_preparation_course=data.get("test_preparation_course"),
+            reading_score=float(data.get("reading_score")),
+            writing_score=float(data.get("writing_score")),
+        )
+        pred_df = custom_data.get_data_as_dataframe()
+        predict_pipeline = PredictPipeline()
+        results = predict_pipeline.predict(pred_df)
+        return jsonify({"prediction": results[0]})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":
