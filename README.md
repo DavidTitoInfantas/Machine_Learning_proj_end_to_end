@@ -80,7 +80,7 @@ O projeto faz uso de GitHub Actions para automatizar:
 
 Os workflows estão definidos em `.github/workflows/`.
 
-Além disso, os comandos para automação das principais tarefas do ciclo de vida do projeto (como testes, formatação, treinamento e deploy) estão organizados no arquivo `Makefile` na raiz do repositório. Recomenda-se consultar o `Makefile` para execução padronizada dessas etapas.
+Além disso, os commandos para automação das principais tarefas do ciclo de vida do projeto (como testes, formatação, treinamento e deploy) estão organizados no arquivo `Makefile` na raiz do repositório. Recomenda-se consultar o `Makefile` para execução padronizada dessas etapas.
 
 ## Exemplos de Execução do CI/CD
 
